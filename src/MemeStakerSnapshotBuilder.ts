@@ -20,7 +20,8 @@ export default class MemeStakerSnapshotBuilder {
         toBlock: this.blockHeight
       })
     })) as any)
-    // stakedEvents.filter((event)=>event.returnValues.amount.toString() !== '0')
+    // Filter out events that didn't actually stake YAM - there aren't currently any, but just in case
+    stakedEvents.filter((event)=>event.returnValues.amount.toString() !== '0')
     // Get user addresses only
     let stakerAddresses = stakedEvents.map((event) => { return event.returnValues.user })
     // Filter by unique

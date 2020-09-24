@@ -14,7 +14,10 @@ yargs
     })
   }, async function (argv) {
     const memers = await MemeStakerSnapshotBuilder.getSnapshot(new Web3(CONFIG.JSON_RPC_URL), argv.blockNumber)
-    // console.log(memers)
+    console.log(memers)
+    memers.forEach((memer) => {
+      console.log(memer)
+    })
   })
   .help()
   .argv
